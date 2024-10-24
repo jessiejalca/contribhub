@@ -376,16 +376,36 @@ function Projects({
             </div>
             {/* Selected filters */}
             <div className='flex flex-wrap px-1 max-w-prose'>
+              {/* Filters by dropdowns */}
               {selectedGroups.map((group) => <SelectedFilter key={group} name={group} toggle={() => toggleTag(group)} />)}
+
               {selectedTypes.map((type) => <SelectedFilter key={type} name={type} toggle={() => toggleType(type)} />)}
+
               {starFilter && 
                 <SelectedFilter 
                   name={`Stars: ${starFilter[0]}-${starFilter[1] === Infinity ? "∞" : starFilter[1]}`} 
                   toggle={() => setStarFilter(null)} 
                 />
               }
+
               {selectedLanguages.map((language) => <SelectedFilter key={language} name={language} toggle={() => toggleLanguage(language)} />)}
+
               {isHacktoberfest && (<SelectedFilter name='hacktoberfest' toggle={() => setIsHacktoberfest(false)} />)}
+
+              {/* Clear all */}
+              {(selectedGroups.length > 0 || selectedTypes.length > 0 || starFilter || selectedLanguages.length > 0 || isHacktoberfest) && (
+                <button 
+                  className='text-gray-600 underline hover:no-underline hover:text-[#5472f9]'
+                  onClick={() => {
+                    setSelectedGroups([])
+                    setSelectedTypes([])
+                    setStarFilter(null)
+                    setSelectedLanguages([])
+                    setIsHacktoberfest(false)
+                  }}
+                  >Clear All
+                </button>
+              )}
             </div>
           </div>
         )}
