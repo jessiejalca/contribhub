@@ -377,7 +377,6 @@ function Projects({
             
             {/* Selected filters */}
             <div className='flex flex-wrap px-1 max-w-prose'>
-              
               {/* Filters by dropdowns */}
               {selectedGroups.map((group) => (
                 <SelectedFilter key={group} name={group} toggle={() => toggleTag(group)} />
