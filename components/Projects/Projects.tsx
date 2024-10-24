@@ -6,12 +6,12 @@ import { getProjectsByMultipleFilters, Project } from '@/services/projects/proje
 import Link from 'next/link'
 import { contributionOptions, languagesOptions, groupOptions } from '@/services/projects/utils'
 
-interface SelectedTagProps {
+interface SelectedFilterProps {
   name: string;
   toggle: () => void;
 }
 
-function SelectedTag({name, toggle}: SelectedTagProps): React.ReactElement {
+function SelectedFilter({name, toggle}: SelectedFilterProps): React.ReactElement {
   // const name = key.charAt(0).toUpperCase() + key.substring(1)
   return (
     <span 
@@ -376,10 +376,10 @@ function Projects({
             </div>
             {/* Selected filters */}
             <div className='flex flex-wrap px-1 max-w-prose'>
-              {selectedGroups.map((group) => <SelectedTag key={group} name={group} toggle={() => toggleTag(group)} />)}
-              {selectedTypes.map((type) => <SelectedTag key={type} name={type} toggle={() => toggleType(type)} />)}
-              {selectedLanguages.map((language) => <SelectedTag key={language} name={language} toggle={() => toggleLanguage(language)} />)}
-              {isHacktoberfest && (<SelectedTag name='hacktoberfest' toggle={() => setIsHacktoberfest(false)} />)}
+              {selectedGroups.map((group) => <SelectedFilter key={group} name={group} toggle={() => toggleTag(group)} />)}
+              {selectedTypes.map((type) => <SelectedFilter key={type} name={type} toggle={() => toggleType(type)} />)}
+              {selectedLanguages.map((language) => <SelectedFilter key={language} name={language} toggle={() => toggleLanguage(language)} />)}
+              {isHacktoberfest && (<SelectedFilter name='hacktoberfest' toggle={() => setIsHacktoberfest(false)} />)}
             </div>
           </div>
         )}
