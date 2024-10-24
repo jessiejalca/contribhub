@@ -153,7 +153,7 @@ function Projects({
     <div className="flex flex-col w-full pb-20">
       <div className="flex flex-col w-full justify-center items-center">
         {showFindBar && (
-          <div className='flex flex-col gap-2'>
+          <div className='flex flex-col gap-1.5 mb-5'>
             {/* Search bar */}
             <div className="bg-white light-shadow rounded-3xl h-auto p-3 w-full flex flex-col items-center gap-2 pr-4">
               <input
