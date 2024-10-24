@@ -378,6 +378,12 @@ function Projects({
             <div className='flex flex-wrap px-1 max-w-prose'>
               {selectedGroups.map((group) => <SelectedFilter key={group} name={group} toggle={() => toggleTag(group)} />)}
               {selectedTypes.map((type) => <SelectedFilter key={type} name={type} toggle={() => toggleType(type)} />)}
+              {starFilter && 
+                <SelectedFilter 
+                  name={`Stars: ${starFilter[0]}-${starFilter[1] === Infinity ? "∞" : starFilter[1]}`} 
+                  toggle={() => setStarFilter(null)} 
+                />
+              }
               {selectedLanguages.map((language) => <SelectedFilter key={language} name={language} toggle={() => toggleLanguage(language)} />)}
               {isHacktoberfest && (<SelectedFilter name='hacktoberfest' toggle={() => setIsHacktoberfest(false)} />)}
             </div>
